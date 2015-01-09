@@ -1,0 +1,15 @@
+<% url = bands_url if !@band.persisted? %>
+<% url = band_url(@band) if @band.persisted? %>
+
+<form action="<%=url %>" method="post">
+  <%= auth_token %>
+  <% if @band.persisted? %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+  <label for="band_name">Band Name</label>
+  <input type="text" name="band[name]" value="<%= @band.name %>" id="band_name">
+
+  <input type="submit" name="Submit">
+
+</form>

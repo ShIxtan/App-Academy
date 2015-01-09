@@ -1,0 +1,9 @@
+All the albums for <%= link_to @band.name, band_url(@band) %>
+
+<ul>
+  <% @albums.each do |album| %>
+    <li><%= link_to album.name, album_url(album)  %></li>
+  <% end %>
+</ul>
+
+<%= button_to "Add album", new_band_album_url(@band), method: :get %>

@@ -1,0 +1,18 @@
+<ul>
+ <li> Name: <%= @track.name %> </li>
+ <li> Album: <%= link_to @track.album.name, album_url(@track.album)%></li>
+ <li> Bonus?: <%= @track.bonus == "B" ? "Yes" : "No" %></li>
+ <li> Lyrics: <%= ugly_lyrics(@track.lyrics) %> </li>
+</ul>
+
+<%= render 'notes/form' %>
+
+
+Notes:
+<% @track.notes.each do |note| %>
+  <%= render 'notes/note', note: note, track: @track%>
+<% end %>
+
+
+<%= button_to "Edit", edit_track_url(@track), method: :get %>
+<%= button_to "Delete", track_url(@track), method: :delete %>

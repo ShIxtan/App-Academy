@@ -1,0 +1,7 @@
+
+
+development:
+  adapter: postgresql
+  database: music_app_dev
+  host: localhost
+  username: aaronulbricht
